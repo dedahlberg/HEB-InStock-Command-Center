@@ -1,0 +1,21 @@
+window.HEB_PRODUCTS = [
+  {brand:'Red Baron',name:'Pepperoni Classic Crust Frozen Pizza',hebProductId:'173218',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/red-baron-pepperoni-classic-crust-frozen-pizza/173218'},
+  {brand:'Red Baron',name:'Four Cheese Classic Crust Frozen Pizza',hebProductId:'173214',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/red-baron-four-cheese-classic-crust-frozen-pizza/173214'},
+  {brand:'Red Baron',name:'Supreme Classic Crust Frozen Pizza',hebProductId:'173217',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/red-baron-supreme-classic-crust-frozen-pizza/173217'},
+  {brand:'Red Baron',name:'Four Meat Classic Crust Frozen Pizza',hebProductId:'688075',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/red-baron-four-meat-classic-crust-frozen-pizza-21-95-oz/688075'},
+  {brand:'Red Baron',name:'Special Deluxe Classic Crust Frozen Pizza',hebProductId:'173215',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/red-baron-special-deluxe-classic-crust-frozen-pizza/173215'},
+  {brand:'Red Baron',name:'Five Cheese & Garlic French Bread Personal Frozen Pizza',hebProductId:'582097',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/red-baron-five-cheese-garlic-french-bread-personal-frozen-pizza/582097'},
+  {brand:"Tony's",name:"Pepperoni Pizzeria Style Crust Frozen Pizza",hebProductId:'1876705',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/tony-s-pepperoni-pizzeria-style-crust-frozen-pizza/1876705'},
+  {brand:"Tony's",name:"Cheese Pizzeria Style Crust Frozen Pizza",hebProductId:'1876706',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/tony-s-cheese-pizzeria-style-crust-frozen-pizza/1876706'},
+  {brand:"Tony's",name:"Supreme Pizzeria Style Crust Frozen Pizza",hebProductId:'1876593',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/tony-s-supreme-pizzeria-style-crust-frozen-pizza/1876593'},
+  {brand:"Tony's",name:"Meat Trio Pizzeria Style Crust Frozen Pizza",hebProductId:'1876742',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/tony-s-meat-trio-pizzeria-style-crust-frozen-pizza/1876742'},
+  {brand:'Freschetta',name:'Four Meat Naturally Rising Crust Frozen Pizza',hebProductId:'173257',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/freschetta-four-meat-naturally-rising-crust-frozen-pizza/173257'},
+  {brand:'Freschetta',name:'Four Cheese Medley Gluten Free Thin Crust Frozen Pizza',hebProductId:'1752093',category:'Pizza',sourceUrl:'https://www.heb.com/product-detail/freschetta-four-cheese-medley-thin-crust-gluten-free-frozen-pizza/1752093'},
+  {brand:'bibigo',name:'Frozen Pork & Vegetable Steamed Dumplings',hebProductId:'2232809',category:'Asian',sourceUrl:'https://www.heb.com/product-detail/bibigo-frozen-pork-vegetable-steamed-dumplings/2232809'},
+  {brand:'bibigo',name:'Frozen Chicken & Vegetable Steamed Dumplings',hebProductId:'2232812',category:'Asian',sourceUrl:'https://www.heb.com/product-detail/bibigo-frozen-chicken-vegetable-steamed-dumplings/2232812'},
+  {brand:'bibigo',name:'Beef Pho Flavor Steamed Dumplings',hebProductId:'16028039',category:'Asian',sourceUrl:'https://www.heb.com/product-detail/bibigo-beef-pho-flavor-steamed-dumplings/16028039'},
+  {brand:'bibigo',name:'Frozen Vegetable & Pork Spicy Sauced Dumplings',hebProductId:'16027533',category:'Asian',sourceUrl:'https://www.heb.com/product-detail/bibigo-frozen-vegetable-pork-spicy-sauced-dumplings/16027533'},
+  {brand:'Edwards',name:'Premium Desserts Frozen Chocolate Crème Pie',hebProductId:'130162',category:'Dessert',sourceUrl:'https://www.heb.com/product-detail/edwards-premium-desserts-frozen-whole-chocolate-cr-me-pie/130162'},
+  {brand:'Edwards',name:'Singles Desserts Frozen Chocolate Crème Pie Slices',hebProductId:'130165',category:'Dessert',sourceUrl:'https://www.heb.com/product-detail/edwards-singles-desserts-frozen-chocolate-cr-me-pie-slices/130165'},
+  {brand:'Edwards',name:'Premium Desserts Frozen Whole Cookies & Creme Pie',hebProductId:'757053',category:'Dessert',sourceUrl:'https://www.heb.com/product-detail/edwards-premium-desserts-frozen-whole-cookies-creme-pie/757053'}
+];
