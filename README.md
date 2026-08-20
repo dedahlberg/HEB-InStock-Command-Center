@@ -12,13 +12,15 @@ A field-facing command center for monitoring in-stock performance, prioritizing 
 - Search, filters, CSV export, mobile-responsive layout
 - Local browser persistence for item status and case additions
 
+## Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdedahlberg%2FHEB-InStock-Command-Center&project-name=heb-instock-command-center&repository-name=HEB-InStock-Command-Center)
+
+The repository includes `vercel.json` and is ready for a static Vercel deployment from the repository root. Use the button above to create the project in the `GO big` Vercel team, then deploy production from `main`.
+
 ## Run locally
 
 Open `index.html` in a browser, or serve the folder with any static web server.
-
-## Deploy
-
-The repository includes `vercel.json` and is ready for a static Vercel deployment from the repository root.
 
 ## Data
 
