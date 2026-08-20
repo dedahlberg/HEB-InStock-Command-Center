@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#b5121b" />
+  <title>H-E-B In-Stock Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">H‑E‑B</div>
+        <div>
+          <div class="brand-title">Command Center</div>
+          <div class="brand-subtitle">In‑Stock Operations</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-item active" data-view="overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-view="stores"><span>⌂</span> Store Execution</button>
+        <button class="nav-item" data-view="items"><span>▤</span> Item Tracker</button>
+        <button class="nav-item" data-view="sales"><span>↗</span> Added Sales</button>
+        <button class="nav-item" data-view="schedule"><span>◷</span> Field Schedule</button>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-label">Weekly Target</div>
+        <div class="sidebar-card-value">98.5%</div>
+        <div class="progress-track"><div class="progress-fill" id="sidebarProgress"></div></div>
+        <div class="sidebar-card-foot" id="sidebarGap">Current gap: 3.7 pts</div>
+      </div>
+
+      <div class="sidebar-footer">H‑E‑B In‑Stock Command Center<br><span>Field execution workspace</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+          <div>
+            <div class="eyebrow">H‑E‑B • TEXAS</div>
+            <h1 id="pageTitle">In‑Stock Overview</h1>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="globalSearch" type="search" placeholder="Search store or item…" />
+          </label>
+          <div class="date-chip" id="todayLabel"></div>
+          <button class="primary-btn" id="exportBtn">Export CSV</button>
+        </div>
+      </header>
+
+      <section class="view active" id="overviewView">
+        <div class="hero-panel">
+          <div>
+            <div class="hero-kicker">EXECUTION PULSE</div>
+            <h2>Protect the shelf. Recover the sale.</h2>
+            <p>See where in‑stock is breaking, what to add, and which stores need action before the next delivery.</p>
+          </div>
+          <div class="hero-score">
+            <div class="score-label">Network In‑Stock</div>
+            <div class="score-value" id="heroInstock">94.8%</div>
+            <div class="score-delta positive">▲ 1.6 pts vs last week</div>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <article class="kpi-card">
+            <div class="kpi-top"><span>In‑Stock</span><span class="status-dot amber"></span></div>
+            <div class="kpi-value" id="kpiInstock">94.8%</div>
+            <div class="kpi-foot">Goal 98.5% <strong id="kpiGap">3.7 pts gap</strong></div>
+          </article>
+          <article class="kpi-card">
+            <div class="kpi-top"><span>Stores Green</span><span class="status-dot green"></span></div>
+            <div class="kpi-value" id="kpiGreen">18 / 32</div>
+            <div class="kpi-foot">At or above 97% <strong id="greenPct">56%</strong></div>
+          </article>
+          <article class="kpi-card">
+            <div class="kpi-top"><span>Cases Added</span><span class="status-dot blue"></span></div>
+            <div class="kpi-value" id="kpiCases">0</div>
+            <div class="kpi-foot">This week <strong id="caseTrend">Ready to track</strong></div>
+          </article>
+          <article class="kpi-card">
+            <div class="kpi-top"><span>Sales Added</span><span class="status-dot red"></span></div>
+            <div class="kpi-value" id="kpiDollars">$0</div>
+            <div class="kpi-foot">Case value opportunity <strong id="dollarTrend">Live</strong></div>
+          </article>
+        </div>
+
+        <div class="content-grid two-thirds">
+          <article class="panel">
+            <div class="panel-head">
+              <div><div class="panel-kicker">7-DAY TREND</div><h3>In‑Stock Performance</h3></div>
+              <div class="legend"><span><i class="legend-line actual"></i> Actual</span><span><i class="legend-line goal"></i> 98.5% Goal</span></div>
+            </div>
+            <div class="chart-wrap"><canvas id="trendChart" aria-label="Seven day in-stock trend"></canvas></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><div><div class="panel-kicker">TODAY</div><h3>Priority Actions</h3></div><button class="text-btn" data-jump="items">View all</button></div>
+            <div id="priorityList" class="priority-list"></div>
+          </article>
+        </div>
+
+        <div class="content-grid two-thirds reverse-mobile">
+          <article class="panel">
+            <div class="panel-head"><div><div class="panel-kicker">STORE HEALTH</div><h3>Lowest In‑Stock Stores</h3></div><button class="text-btn" data-jump="stores">Store detail</button></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Store</th><th>City</th><th>In‑Stock</th><th>Gap</th><th>Status</th></tr></thead>
+                <tbody id="overviewStoreRows"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><div><div class="panel-kicker">DAY OF WEEK</div><h3>Execution Pattern</h3></div></div>
+            <div id="dowBars" class="bar-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="storesView">
+        <div class="section-intro">
+          <div><div class="eyebrow">STORE EXECUTION</div><h2>Where the gap lives</h2><p>Prioritize stores below target and assign a clear next action.</p></div>
+          <div class="filter-row">
+            <select id="storeStatusFilter"><option value="all">All statuses</option><option value="green">Green</option><option value="watch">Watch</option><option value="critical">Critical</option></select>
+            <select id="cityFilter"><option value="all">All cities</option></select>
+          </div>
+        </div>
+        <article class="panel">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Store</th><th>City</th><th>In‑Stock</th><th>7-Day Δ</th><th>OOS Items</th><th>Next Delivery</th><th>Execution</th><th>Action</th></tr></thead>
+              <tbody id="storeRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" id="itemsView">
+        <div class="section-intro">
+          <div><div class="eyebrow">ITEM TRACKER</div><h2>Close the item-level gap</h2><p>Set status, add cases, and automatically convert action into sales opportunity.</p></div>
+          <div class="filter-row">
+            <select id="categoryFilter"><option value="all">All categories</option></select>
+            <select id="itemStatusFilter"><option value="all">All statuses</option><option value="Open">Open</option><option value="Added">Added</option><option value="Verified">Verified</option></select>
+          </div>
+        </div>
+        <article class="panel">
+          <div class="table-wrap">
+            <table class="data-table item-table">
+              <thead><tr><th>Priority</th><th>Item</th><th>Category</th><th>Store</th><th>In‑Stock</th><th>Status</th><th>Qty Added</th><th>$/Case</th><th>Sales Added</th></tr></thead>
+              <tbody id="itemRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" id="salesView">
+        <div class="section-intro">
+          <div><div class="eyebrow">ADDED SALES</div><h2>Measure the intervention</h2><p>Cases added in the item tracker roll into weekly case and dollar impact.</p></div>
+        </div>
+        <div class="kpi-grid compact">
+          <article class="kpi-card"><div class="kpi-top"><span>Total Cases</span></div><div class="kpi-value" id="salesCases">0</div><div class="kpi-foot">Current week</div></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Total $ Added</span></div><div class="kpi-value" id="salesDollars">$0</div><div class="kpi-foot">Estimated invoice value</div></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Items Actioned</span></div><div class="kpi-value" id="salesItems">0</div><div class="kpi-foot">With ≥ 1 case added</div></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Avg $ / Action</span></div><div class="kpi-value" id="salesAvg">$0</div><div class="kpi-foot">Per actioned item</div></article>
+        </div>
+        <div class="content-grid two-thirds">
+          <article class="panel">
+            <div class="panel-head"><div><div class="panel-kicker">WEEKLY IMPACT</div><h3>Sales Added by Day</h3></div></div>
+            <div class="chart-wrap"><canvas id="salesChart"></canvas></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><div class="panel-kicker">MIX</div><h3>Top Added Categories</h3></div></div>
+            <div id="categoryImpact" class="impact-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="scheduleView">
+        <div class="section-intro">
+          <div><div class="eyebrow">FIELD SCHEDULE</div><h2>Delivery + merchandising rhythm</h2><p>One operating view for the work that protects in‑stock.</p></div>
+        </div>
+        <div class="schedule-grid" id="scheduleGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
